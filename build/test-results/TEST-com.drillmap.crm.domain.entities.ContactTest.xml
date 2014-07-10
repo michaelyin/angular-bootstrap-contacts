@@ -1,0 +1,8 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<testsuite name="com.drillmap.crm.domain.entities.ContactTest" tests="1" failures="0" errors="0" timestamp="1970-01-01T00:00:00" hostname="tony.drillmap.com" time="1.396369006738E9">
+  <properties/>
+  <testcase name="checkEquality" classname="com.drillmap.crm.domain.entities.ContactTest" time="0.025"/>
+  <system-out><![CDATA[Contact = Contact(super=AuditableEntity(super=BaseEntity(id=1, version=null), createdAt=java.util.GregorianCalendar[time=1396369006714,areFieldsSet=true,areAllFieldsSet=true,lenient=true,zone=sun.util.calendar.ZoneInfo[id="America/Chicago",offset=-21600000,dstSavings=3600000,useDaylight=true,transitions=235,lastRule=java.util.SimpleTimeZone[id=America/Chicago,offset=-21600000,dstSavings=3600000,useDaylight=true,startYear=0,startMode=3,startMonth=2,startDay=8,startDayOfWeek=1,startTime=7200000,startTimeMode=0,endMode=3,endMonth=10,endDay=1,endDayOfWeek=1,endTime=7200000,endTimeMode=0]],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2014,MONTH=3,WEEK_OF_YEAR=14,WEEK_OF_MONTH=1,DAY_OF_MONTH=1,DAY_OF_YEAR=91,DAY_OF_WEEK=3,DAY_OF_WEEK_IN_MONTH=1,AM_PM=0,HOUR=11,HOUR_OF_DAY=11,MINUTE=16,SECOND=46,MILLISECOND=714,ZONE_OFFSET=-21600000,DST_OFFSET=3600000], updatedAt=null), firstName=shane, lastName=frensley)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "http://www.thymeleaf.org/dtd/xhtml11-thymeleaf-spring4-4.dtd">
+<html data-ng-app="customersApp" data-ng-controller="appController" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thttp://www.thymeleaf.org/dtd/xhtml11-thymeleaf-spring4-4.dtd">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Customer Relationship Manager</title>
+    <link th:href="@{app/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{app/css/bootstrap-responsive.min.css}" rel="stylesheet"/>
+    <link th:href="@{app/css/ng-grid.min.css}" rel="stylesheet"/>
+    <link th:href="@{app/css/jquery-ui-1.10.4.custom.min.css}" rel="stylesheet"/>
+    <link th:href="@{app/css/customerManagementStyles.css}" rel="stylesheet"/>
+
+    <script>
+        var dmApplicationEntryPoint = '//localhost:9090';
+
+    </script>
+
+    </head>
+<body>
+
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <a class="brand " href="#/">
+                <img th:src= "@{app/css/images/people.png}" alt="logo"> Customer Manager
+            </a>
+            <ul class="nav nav-pills">
+                <li ng-class="{ active: isCurrentPath('/customers') }"><a href="#/customers">Customers</a></li>
+                <li ng-class="{ active: isCurrentPath('/opportunities') }"><a href="#/opportunities">Opportunities</a></li>
+
+            </ul>
+            <ul class="nav pull-right">
+                <li class="divider-vertical"></li>
+                <li class="dropdown" ng-class="{ active: isCurrentPath('/forms/create') }" >
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administration <b class="caret"></b></a>
+                    <ul class="dropdown-menu" >
+                        <li><a href="#/forms/create">Dynamic Forms</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#/admin/sales">Sales Person</a></li>
+                        <li><a href="#/admin/probability">Probability</a></li>
+                        <li><a href="#/admin/states">States</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <div ng-if='!loadingDone' class="span10">
+        <!-- this is my loading div, it is taken out of the dom once everything is loaded! -->
+        <h2><small>Loading:</small></h2>
+        <div class="progress progress-striped active" ng-controller='loadingController'>
+            <div class="bar" style="width:{{percentDone}}%">
+            </div>
+        </div>
+    </div>
+
+    <div ng-if='loadingDone'>
+        <!--
+           this is my working div, it is inserted to  the dom once everything is loaded!
+           By putting the ng-view in here, the routes only get fired AFTER I have
+           done al off my initializations, and requests.
+        -->
+        <!-- Note that AngularJS has a built-in ng-animation direction. Left in animated-view to show a
+              custom directive -->
+        <div animated-view></div>
+        <ng-view></ng-view>
+    </div>
+
+
+    <div class="footer">
+        <hr>
+        <div class="row">
+            <div class="span12">
+                <div class="span4">
+                    <p class="muted pull-right">© 2014 drillMap. All rights reserved</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Vendor Libs: jQuery only used for Bootstrap functionality -->
+<script th:src="@{app/lib/jquery.min.js}"></script>
+<script th:src="@{app/lib/angular/angular.js}"></script>
+<script th:src="@{app/lib/angular/angular-route.js}"></script>
+
+<script th:src="@{app/lib/bootstrap-ui.js}"></script>
+
+<script th:src="@{app/lib/ng-grid-2.0.8.debug.js}"></script>
+<script th:src="@{app/lib/jquery-ui-1.10.4.custom.min.js}"></script>
+<script th:src="@{app/lib/dynamic-forms.js}"></script>
+<script th:src="@{app/lib/ng-infinite-scroll.js}"></script>
+
+<!-- application -->
+
+<script th:src="@{app/js/app.js}"></script>
+<script th:src="@{app/js/services/customerServices.js}"></script>
+<script th:src="@{app/js/services/ajaxService.js}"></script>
+<script th:src="@{app/js/controllers/applicationController.js}"></script>
+<script th:src="@{app/js/controllers/customerControllers.js}"></script>
+<script th:src="@{app/js/controllers/contactControllers.js}"></script>
+<script th:src="@{app/js/controllers/opportunityControllers.js}"></script>
+<script th:src="@{app/js/filters/customerFilters.js}"></script>
+<script th:src="@{app/js/directives/directives.js}"></script>
+
+<!-- form builder/admin -->
+
+<script th:src="@{app/js/controllers/formController.js}"></script>
+<script th:src="@{app/js/services/formService.js}"></script>
+
+<script th:src="@{app/js/controllers/salesPersonController.js}"></script>
+<script th:src="@{app/js/controllers/stateController.js}"></script>
+<script th:src="@{app/js/controllers/probabilityController.js}"></script>
+
+
+</body>
+
+</html>
